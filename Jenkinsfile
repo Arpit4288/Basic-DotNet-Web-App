@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    // Define the environment variables for the .NET SDK
-    environment {
-        DOTNET_SDK = '.NET6' // Name of the .NET SDK defined in Jenkins
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -14,10 +9,6 @@ pipeline {
         }
 
         stage('Build') {
-            // Use the build wrapper to set up the environment with the specified .NET SDK
-            wrappers {
-                dotnetSdkInstallation("$DOTNET_SDK") // Specify the .NET SDK to use
-            }
             steps {
                 // Change directory to the location of your solution file
                 dir('Basic DotNet Web App') {
@@ -28,10 +19,6 @@ pipeline {
         }
 
         stage('Test') {
-            // Use the build wrapper to set up the environment with the specified .NET SDK
-            wrappers {
-                dotnetSdkInstallation("$DOTNET_SDK") // Specify the .NET SDK to use
-            }
             steps {
                 // Change directory to the location of your solution file
                 dir('Basic DotNet Web App') {
