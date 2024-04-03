@@ -12,8 +12,8 @@ pipeline {
             steps {
                 // Change directory to the location of your solution file
                 dir('Basic DotNet Web App') {
-                    // Execute the build command
-                    bat 'dotnet build'
+                    // Execute the build command using shell
+                    sh 'dotnet build'
                 }
             }
         }
@@ -22,8 +22,8 @@ pipeline {
             steps {
                 // Change directory to the location of your solution file
                 dir('Basic DotNet Web App') {
-                    // Execute the test command
-                    bat 'dotnet test'
+                    // Execute the test command using shell
+                    sh 'dotnet test'
                 }
             }
         }
