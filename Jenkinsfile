@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        PATH = "/var/jenkins_home/tools/io.jenkins.plugins.dotnet.DotNetSDK/dotnetsdk/:$PATH"
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -16,7 +12,7 @@ pipeline {
             steps {
                 // Change directory to the location of your solution file
                 dir('Basic DotNet Web App') {
-                    // Execute the build command
+                    // Execute the build command using shell
                     sh 'dotnet build'
                 }
             }
@@ -26,7 +22,7 @@ pipeline {
             steps {
                 // Change directory to the location of your solution file
                 dir('Basic DotNet Web App') {
-                    // Execute the test command
+                    // Execute the test command using shell
                     sh 'dotnet test'
                 }
             }
